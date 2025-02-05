@@ -57,25 +57,49 @@ body {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+img {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+}
+
 .sidebar {
   grid-column: 1 / 2;
   grid-row: 1 / 3;
 
   display: grid;
   grid-template-rows: repeat(10, 1fr);
-  gap: 32px 0px;
+  gap: 40px 0px;
   
   background-color: skyblue;
   color: white;
 
-  padding: 16px;
+  padding: 24px;
+}
+
+.bar-option,
+.title-logo {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 24px 1fr;
+  align-items: center;
+  column-gap: 16px;
+}
+
+.title-logo {
+  width: 32px;
+  height: 32px;
+  grid-template-columns: 32px 1fr;
 }
 
 .title-logo,
 .sidebar-services,
 .sidebar-options {
   display: grid;
-  gap: 8px;
+  gap: 12px;
+  color: black;
+  font-size: 1rem;
   /* align-items: start; */
 }
 
@@ -84,13 +108,11 @@ body {
   grid-row: 1 / 2;
   display: grid;
   grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 3fr 2fr;
   background-color: white;
-}
+  gap: 16px 8px;
 
-.header > div {
-  padding: 16px 32px;
-  gap: 0 16px
+  padding: 8px 48px 16px 48px;
 }
 
 .search {
@@ -98,26 +120,92 @@ body {
 
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 32px 1fr;
+}
+
+.search > input {
+  border-radius: 12px;
+  border: none;
+  background-color: lightgrey;
+  opacity: 40%;
+  padding: 1px 8px;
+}
+
+.search > input:focus {
+  opacity: 1;
+  outline: 1px solid grey;
 }
 
 .profile {
-  display: grid;
+  display: inline-grid;
+  width: fit-content;
+  gap: 16px;
+  justify-self: end;
   grid-auto-flow: column;
-  grid-template-columns: 50px 50px min(100px, 1fr);
-  /* grid-template-columns: repeat(3, 1fr); */
-  justify-items: end;
+  /* grid-template-columns: 50px 50px min(100px, 1fr); */
+  grid-template-columns: auto auto auto;
+  justify-items: center;
+}
+
+.profile img {
+  width: 24px;
+  height: 24px;
+}
+
+.profile-pic {
+  height: 32px;
+  width: 32px;
+  zoom: 150%;
+
+  border-radius: 100px;
 }
 
 .hi-there {
   display: grid;
   grid-template-columns: 50px 1fr;
+  column-gap: 16px;
+
+}
+
+.hi-there > div {
+  height: auto;
+  font-weight: bold;
+}
+
+.hi-there > div > h2 {
+  font-size: 20px;
+  margin-top: -4px;
 }
 
 .buttons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
+  column-gap: 16px;
 }
+
+.buttons > button {
+  border-radius: 20px;
+  height: 75%;
+  background-color: skyblue;
+  border: 2px solid black;
+}
+
+.buttons > button:hover {
+  background-color: black;
+  color: skyblue;
+  font-weight: bold;
+  /* box-shadow: 2px 2px 5px skyblue; */
+  border: 2px solid skyblue;
+  
+
+}
+
+.buttons > button:active {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+} 
 
 .search > *,
 .profile > *,
@@ -143,4 +231,121 @@ body {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   background-color: lightgrey;
+
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  padding: 16px 16px 48px 16px;
 }
+
+.projects {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  height: 100%;
+}
+
+.cards {
+  height: 100%;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: repeat(3, 1fr);
+  gap: 16px;
+
+}
+
+.card,
+.announcements,
+.trends {
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+
+  display: grid;
+}
+
+.card {
+  border-left: solid 6px orange;
+  grid-template-rows: 30px 1fr 30px;
+}
+
+
+
+.card-icons {
+  width: fit-content;
+  display: grid;
+  gap: 16px;
+  grid-auto-flow: column;
+  place-self: end;
+}
+
+
+.announcement-container {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.announcements {
+  height: 100%;
+  display: grid;
+
+}
+
+.announcements div:not(:first-child) {
+  padding-top: 8px;
+}
+
+.announcements div:not(:last-child) {
+  padding-bottom: 8px;
+  border-bottom: solid 1px lightgrey;
+}
+
+.announcement {
+  font-size: 12px;
+}
+
+.announcement > .title {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.trending {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  margin-top: 32px;
+}
+
+.trends {
+  height: 100%;
+}
+
+.trend {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 32px 1fr;
+  column-gap: 8px;
+}
+
+.trend > * {
+  align-self: center;
+  justify-self: start;
+}
+
+.trend > img {
+  width: 32px;
+  height: 32px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.trending > .title,
+.announcement-container > .title,
+.projects > .title {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+
